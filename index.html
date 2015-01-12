@@ -2,12 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Flux • TodoMVC</title>
-    <link rel="stylesheet" href="todomvc-common/base.css">
-    <link rel="stylesheet" href="css/app.css">
+    <title>Tasks</title>
+
+    <!-- Load Styles: Note, this must be done before loading the LESS Parser -->
+    <link rel="stylesheet/less" type="text/css" href="./styles/reset.css">
+    <link rel="stylesheet/less" type="text/less" href="./styles/global.less">
+    <link rel="stylesheet/less" type="text/less" href="./styles/app.less">
+
+    <!-- Load LESS CSS Parser -->
+    <script type="text/javascript">var less=less||{};less.env='development';</script>
+    <script src="./scripts/less.min.js"></script>
+
   </head>
   <body>
     <section id="todoapp"></section>
-    <script src="js/bundle.js"></script>
+    <script src="scripts/bundle.js"></script>
   </body>
 </html>
