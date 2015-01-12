@@ -41,7 +41,7 @@ var TodoApp = React.createClass({
 
 	render: function () {
 		return (
-			<div class='app'>
+			<div className='app'>
 				<Todos 
 					allTodos={this.state.allTodos}
 					areAllComplete={this.state.areAllComplete}
