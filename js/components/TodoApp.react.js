@@ -1,8 +1,6 @@
 var React = require('react');
 
 // Components
-//var Footer = require('./Footer.react');
-//var Header = require('./Header.react');
 var Todos = require('./Todos.react');
 
 //Store
@@ -33,14 +31,30 @@ var TodoApp = React.createClass({
 		return _getTodoState();
 	},
 
+	componentDidMount: function() {
+		TodosStore.addChangeListener(this._onChange);
+	},
+
+	componentWillUnmount: function() {
+		TodosStore.removeChangeListener(this._onChange);
+	},
 
 	render: function () {
 		return (
-			<Todos 
-				allTodos={this.state.allTodos}
-				areAllComplete={this.state.areAllComplete}
-			/>
+			<div class='app'>
+				<Todos 
+					allTodos={this.state.allTodos}
+					areAllComplete={this.state.areAllComplete}
+				/>
+			</div>
 		);
+	},
+
+	/**
+	* Event handler for 'change' events coming from the TodoStore
+	*/
+	_onChange: function() {
+		this.setState(_getTodoState());
 	}
 
 });
